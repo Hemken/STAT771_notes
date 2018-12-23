@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="homework-9.html">
-<link rel="next" href="homework-11.html">
+<link rel="prev" href="homework-16.html">
+<link rel="next" href="homework-17.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -138,15 +138,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.5.4" data-path="nonlinear-systems-of-equations.html"><a href="nonlinear-systems-of-equations.html#picards-method"><i class="fa fa-check"></i><b>1.5.4</b> Picard’s Method</a></li>
 <li class="chapter" data-level="1.5.5" data-path="nonlinear-systems-of-equations.html"><a href="nonlinear-systems-of-equations.html#newtons-method"><i class="fa fa-check"></i><b>1.5.5</b> Newton’s Method</a></li>
 <li class="chapter" data-level="1.5.6" data-path="nonlinear-systems-of-equations.html"><a href="nonlinear-systems-of-equations.html#inexact-newtons-method"><i class="fa fa-check"></i><b>1.5.6</b> Inexact Newton’s Method</a></li>
-<li class="chapter" data-level="1.5.7" data-path="nonlinear-systems-of-equations.html"><a href="nonlinear-systems-of-equations.html#semi-smooth-newtons-method"><i class="fa fa-check"></i><b>1.5.7</b> Semi-Smooth Newton’s Method</a></li>
-</ul></li>
-<li class="chapter" data-level="1.6" data-path="non-linear-unconstrained-optimization.html"><a href="non-linear-unconstrained-optimization.html"><i class="fa fa-check"></i><b>1.6</b> Non-linear Unconstrained Optimization</a><ul>
-<li class="chapter" data-level="1.6.1" data-path="non-linear-unconstrained-optimization.html"><a href="non-linear-unconstrained-optimization.html#motivating-problems-2"><i class="fa fa-check"></i><b>1.6.1</b> Motivating Problems</a></li>
-<li class="chapter" data-level="1.6.2" data-path="non-linear-unconstrained-optimization.html"><a href="non-linear-unconstrained-optimization.html#formalize-minimization"><i class="fa fa-check"></i><b>1.6.2</b> Formalize Minimization</a></li>
-<li class="chapter" data-level="1.6.3" data-path="non-linear-unconstrained-optimization.html"><a href="non-linear-unconstrained-optimization.html#algorithmic-and-theoretical-preview"><i class="fa fa-check"></i><b>1.6.3</b> Algorithmic and Theoretical Preview</a></li>
-<li class="chapter" data-level="1.6.4" data-path="non-linear-unconstrained-optimization.html"><a href="non-linear-unconstrained-optimization.html#line-search"><i class="fa fa-check"></i><b>1.6.4</b> Line Search</a></li>
-<li class="chapter" data-level="1.6.5" data-path="non-linear-unconstrained-optimization.html"><a href="non-linear-unconstrained-optimization.html#trust-region"><i class="fa fa-check"></i><b>1.6.5</b> Trust Region</a></li>
-<li class="chapter" data-level="1.6.6" data-path="non-linear-unconstrained-optimization.html"><a href="non-linear-unconstrained-optimization.html#acceptancerejection-criteria"><i class="fa fa-check"></i><b>1.6.6</b> Acceptance/Rejection Criteria</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="homework-assignments.html"><a href="homework-assignments.html"><i class="fa fa-check"></i><b>2</b> Homework Assignments</a><ul>
@@ -168,9 +159,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.16" data-path="homework-16.html"><a href="homework-16.html"><i class="fa fa-check"></i><b>2.16</b> Homework 16</a><ul>
 <li class="chapter" data-level="2.16.1" data-path="homework-16.html"><a href="homework-16.html#newtons-method-1"><i class="fa fa-check"></i><b>2.16.1</b> Newton’s Method</a></li>
 </ul></li>
-<li class="chapter" data-level="2.17" data-path="homework-17.html"><a href="homework-17.html"><i class="fa fa-check"></i><b>2.17</b> Homework 17</a></li>
-<li class="chapter" data-level="2.18" data-path="homework-18.html"><a href="homework-18.html"><i class="fa fa-check"></i><b>2.18</b> Homework 18</a></li>
-<li class="chapter" data-level="2.19" data-path="homework-19.html"><a href="homework-19.html"><i class="fa fa-check"></i><b>2.19</b> Homework 19</a></li>
+<li class="chapter" data-level="2.17" data-path="homework-16-1.html"><a href="homework-16-1.html"><i class="fa fa-check"></i><b>2.17</b> Homework 16</a></li>
+<li class="chapter" data-level="2.18" data-path="homework-17.html"><a href="homework-17.html"><i class="fa fa-check"></i><b>2.18</b> Homework 17</a></li>
 </ul></li>
 </ul>
 
@@ -189,51 +179,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="homework-10" class="section level2">
-<h2><span class="header-section-number">2.10</span> Homework 10</h2>
+<div id="homework-16-1" class="section level2">
+<h2><span class="header-section-number">2.17</span> Homework 16</h2>
+<p>Proof or find counter example for the following four problems:</p>
 
 <div class="exercise">
-<span id="exr:q1001" class="exercise"><strong>Exercise 60  </strong></span>Implement Jacobi, Gauss-Seidel without using the <code>\</code> operator.
-</div>
-
-
-<div class="solution">
- <span class="solution"><em>Solution. </em></span> See <a href="%22../Homework/jacobi.jl%22">Jacobi</a> and <a href="%22../Homework/gauss_seidel.jl%22">Gauss-Seidel</a>.
+<span id="exr:q1601" class="exercise"><strong>Exercise 114  </strong></span>If <span class="math inline">\(\theta^*\)</span> is a global minimizer, it is a local minimizer.
 </div>
 
 
 <div class="exercise">
-<span id="exr:q1002" class="exercise"><strong>Exercise 61  </strong></span>Implement SOR, SSOR without using the <code>\</code> operator.
-</div>
-
-
-<div class="solution">
- <span class="solution"><em>Solution. </em></span> See <a href="%22../Homework/SOR.jl%22">SOR</a>.
+<span id="exr:q1602" class="exercise"><strong>Exercise 115  </strong></span>If <span class="math inline">\(\theta^*\)</span> is a strict global minimizer, it is the only global minimizer.
 </div>
 
 
 <div class="exercise">
-<p><span id="exr:q1003" class="exercise"><strong>Exercise 62  </strong></span> Randomly generate problems and</p>
-<ol style="list-style-type: lower-alpha">
-<li>at each iteration, record residual norm and absolute error</li>
-<li>compare rate of convergence against spectral radious</li>
-<li>put all this information into a narrative using graphics</li>
-</ol>
+<span id="exr:q1603" class="exercise"><strong>Exercise 116  </strong></span>If <span class="math inline">\(\theta^*\)</span> is an isolated global minimizer, it is the only global minimizer.
 </div>
 
 
 <div class="exercise">
-<span id="exr:q1004" class="exercise"><strong>Exercise 63  </strong></span>Prove that observation 1 from the proof of <a href="iterative-methods.html#thm:rand-kaczmarz">7</a> is true.
+<span id="exr:q1604" class="exercise"><strong>Exercise 117  </strong></span>If <span class="math inline">\(\theta^*\)</span> is a strict local minimizer, it is isolated. #there exists a neighborhood around <span class="math inline">\(\theta^*\)</span> such that <span class="math inline">\(\theta^*\)</span> is isolated in said neighborhood.
 </div>
 
 
 <div class="exercise">
-<span id="exr:q1005" class="exercise"><strong>Exercise 64  </strong></span>Implement Random Kaczmarz for random permutations.
+<span id="exr:q1605" class="exercise"><strong>Exercise 118  </strong></span>Is the condition sufficient?
 </div>
 
 
 <div class="exercise">
-<span id="exr:q1006" class="exercise"><strong>Exercise 65  </strong></span>Give a detailed comparison of cycle, randomized, and random permutation Kaczmarz.
+<span id="exr:q1606" class="exercise"><strong>Exercise 119  </strong></span>Fill in the blanks!
 </div>
 
 </div>
@@ -242,8 +218,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="homework-9.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="homework-11.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-16.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-17.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

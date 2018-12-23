@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="homework-9.html">
-<link rel="next" href="homework-11.html">
+<link rel="prev" href="homework-12.html">
+<link rel="next" href="homework-14.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -189,51 +189,124 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="homework-10" class="section level2">
-<h2><span class="header-section-number">2.10</span> Homework 10</h2>
+<div id="homework-13" class="section level2">
+<h2><span class="header-section-number">2.13</span> Homework 13</h2>
 
 <div class="exercise">
-<span id="exr:q1001" class="exercise"><strong>Exercise 60  </strong></span>Implement Jacobi, Gauss-Seidel without using the <code>\</code> operator.
+<span id="exr:q1301" class="exercise"><strong>Exercise 85  </strong></span>Show that the procedure in <a href="iterative-methods.html#conjugatedgradients">1.4.8.3</a> is the same as the one implemented in the code below.
 </div>
 
 
 <div class="solution">
- <span class="solution"><em>Solution. </em></span> See <a href="%22../Homework/jacobi.jl%22">Jacobi</a> and <a href="%22../Homework/gauss_seidel.jl%22">Gauss-Seidel</a>.
+ <span class="solution"><em>Solution. </em></span> Code below is annotated with descriptions step by step
 </div>
 
+<div class="sourceCode"><pre class="sourceCode julia"><code class="sourceCode julia"><span class="co">#Gram-Schmidt Conjugation</span>
+<span class="kw">function</span> conjGS(A,V; ϵ = <span class="fl">1e-15</span>)
+    <span class="st">&quot;&quot;&quot;Implements classical Gram-Schmidt</span>
+    A-conjugation over a set of vectors
+    <span class="kw">in</span> the vector V. Returns A-conjugated
+    vectors using set <span class="kw">in</span> V<span class="st">&quot;&quot;&quot;</span>
+
+    <span class="co">## Define function to get A-norm of vector</span>
+    normA(x) = sqrt(dot(x,A*x))
+
+    <span class="co">## This will hold conjugated set</span>
+    Q = <span class="dt">Vector</span>(length(V))
+
+    counter = <span class="fl">1</span>
+    <span class="kw">for</span> j = <span class="fl">1</span>:length(V)
+        <span class="kw">if</span> counter == <span class="fl">1</span>
+            <span class="co">#Check if zero vector</span>
+            normA(V[j]) &lt;= ϵ &amp;&amp; <span class="kw">continue</span>
+
+            <span class="co">#Otherwise add to Conjugated Set</span>
+            Q[<span class="fl">1</span>] = V[j]/normA(V[j]) <span class="co"># -- get A-norm of r (here, v) and calculate first conjugated vector</span>
+
+            counter+= <span class="fl">1</span>
+        <span class="kw">else</span>
+            <span class="co">#Project</span>
+            proj = map(λ -&gt; dot(Q[λ],A*V[j])*Q[λ] ,<span class="fl">1</span>:counter-<span class="fl">1</span>) <span class="co"># -- calculate elements that go into sum of s_j</span>
+            a = V[j] - sum(proj) <span class="co"># -- take the difference...</span>
+
+            <span class="co">#Check if zero vector</span>
+            normA(a) &lt;= ϵ &amp;&amp; <span class="kw">continue</span>
+
+            <span class="co">#Otherwise add to Conjugated Set</span>
+            Q[counter] = a/normA(a) <span class="co"># -- ... and normalize</span>
+
+            counter +=<span class="fl">1</span>
+        <span class="kw">end</span>
+    <span class="kw">end</span>
+    <span class="kw">return</span> Q
+<span class="kw">end</span></code></pre></div>
 
 <div class="exercise">
-<span id="exr:q1002" class="exercise"><strong>Exercise 61  </strong></span>Implement SOR, SSOR without using the <code>\</code> operator.
+<span id="exr:q1302" class="exercise"><strong>Exercise 86  </strong></span>Prove that CG converges in finitely many steps (in exact arithmetic).
 </div>
 
 
 <div class="solution">
- <span class="solution"><em>Solution. </em></span> See <a href="%22../Homework/SOR.jl%22">SOR</a>.
+ <span class="solution"><em>Solution. </em></span> Shewchuk 7.1 (pages 24-25)
 </div>
 
 
 <div class="exercise">
-<p><span id="exr:q1003" class="exercise"><strong>Exercise 62  </strong></span> Randomly generate problems and</p>
-<ol style="list-style-type: lower-alpha">
-<li>at each iteration, record residual norm and absolute error</li>
-<li>compare rate of convergence against spectral radious</li>
-<li>put all this information into a narrative using graphics</li>
-</ol>
+<span id="exr:q1303" class="exercise"><strong>Exercise 87  </strong></span>Show that the limit in example <a href="nonlinear-systems-of-equations.html#exm:gradient-example">12</a> holds.
+</div>
+
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span>  ???</p>
 </div>
 
 
 <div class="exercise">
-<span id="exr:q1004" class="exercise"><strong>Exercise 63  </strong></span>Prove that observation 1 from the proof of <a href="iterative-methods.html#thm:rand-kaczmarz">7</a> is true.
+<span id="exr:q1304" class="exercise"><strong>Exercise 88  </strong></span>Characterize the relationship between the Jacobian and the gradient.
+</div>
+
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span>  If the Jacobian exists, then the gradient exists, and the relationship is as follows:</p>
+<p><span class="math display">\[J(f;x) = \begin{bmatrix}
+             \frac{\partial f_{1}}{\partial x_{1}}   &amp;
+           \frac{\partial f_{1}}{\partial x_{2}} &amp;
+               \cdots                                &amp;
+               \frac{\partial f_{1}}{\partial x_{n}} \\
+         \vdots                                  &amp;
+           \vdots                                &amp;
+               \cdots                                &amp;
+           \vdots \\
+             \frac{\partial f_{m}}{\partial x_{1}}   &amp;
+           \frac{\partial f_{m}}{\partial x_{2}} &amp;
+           \cdots                                &amp;
+           \frac{\partial f_{m}}{\partial x_{n}}
+       \end{bmatrix} = \begin{bmatrix} \nabla f_1(x)^\prime \\
+       \vdots \\
+       \nabla f_m(x)^\prime
+       \end{bmatrix}\]</span></p>
+<p>Note that the inverse is not true.</p>
+<p><a href="https://calculus.subwiki.org/wiki/Existence_of_partial_derivatives_not_implies_differentiable" class="uri">https://calculus.subwiki.org/wiki/Existence_of_partial_derivatives_not_implies_differentiable</a></p>
 </div>
 
 
 <div class="exercise">
-<span id="exr:q1005" class="exercise"><strong>Exercise 64  </strong></span>Implement Random Kaczmarz for random permutations.
+<span id="exr:q1305" class="exercise"><strong>Exercise 89  </strong></span>Using IFT: when will <span class="math inline">\(F(x) = 0\)</span> have an isolated solution? (i.e. a solution where there is an open set containing that solution with no other solutions)
+</div>
+
+
+<div class="solution">
+ <span class="solution"><em>Solution. </em></span> When <span class="math inline">\(m = n\)</span>, the neighborhood will be one dimensional and be only one point.
 </div>
 
 
 <div class="exercise">
-<span id="exr:q1006" class="exercise"><strong>Exercise 65  </strong></span>Give a detailed comparison of cycle, randomized, and random permutation Kaczmarz.
+<span id="exr:q1306" class="exercise"><strong>Exercise 90  </strong></span>What happens if <span class="math inline">\(F(z^*) = 0\)</span> and <span class="math inline">\(\text{rank}(J(z^*)) &lt; \min(n,m)\)</span>?
+</div>
+
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span>  If <span class="math inline">\(rank(J(z^*)) &lt; min(m,n)\)</span>, then <span class="math inline">\(J_1(z^*)\)</span> is not full rank and thus will be a singular matrix</p>
 </div>
 
 </div>
@@ -242,8 +315,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="homework-9.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="homework-11.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-12.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-14.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
